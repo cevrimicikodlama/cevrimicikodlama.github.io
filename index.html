@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="kodlama eğitimi, kodlama, programlama, promosyon, tanıtım">
+    <meta name="keywords" content="design, dizayn, tasarım, programlama, program, programming,kodlama">
+    <title>Çevrimiçi Kodlama | Geleceği Kodla</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@700;900&family=Outfit:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <script>
+        window.addEventListener('scroll', function() {
+        // Sayfadaki tüm section (bölüm) etiketlerini bul
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const viewHeight = window.innerHeight;`
+    
+        // Bölüm ekranın ne kadar üstündeyse o kadar şeffaf olsun`
+        // 0 tamamen görünmez, 1 tamamen somut`
+        let opacity = 1 - (Math.abs(rect.top) / (viewHeight / 1.5));`
+    
+        // Opacity değerinin 0 ile 1 arasında kalmasını sağla`
+        if (opacity < 0) opacity = 0;
+        if (opacity > 1) opacity = 1;
+    
+        section.style.opacity = opacity;}); });
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand nav-logo" href="#home"><b><span>Çevrimiçi</span> Kodlama</b></a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link fw-bold" href="#home">Ana Sayfa</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="#courses">Eğitimler</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn" href="#contact">
+                            <span class="btn-text">Hemen Başla</span>
+                            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero d-flex align-items-center justify-content-center">
+        <div class="container text-center" data-aos="zoom-in">
+            <div  class="logo-wrapper mb-4">
+                <img src="logo.png" alt="Logo" class="main-logo img-fluid">
+            </div>
+            <h1 class="hero-title">GELECEĞİ SENİNLE <br><span>KODLUYORUZ!</span></h1>
+            <p class="hero-subtitle mx-auto">İlkokuldan liseye; blok kodlama, Python ve Yapay Zeka ile tanışın.</p>
+        </div>
+    </section>
+
+    <section id="courses" class="py-3">
+        <div class="container text-center">
+            <h2 class="section-title mb-5 mt-2" data-aos="fade-up">EĞİTİM PROGRAMLARIMIZ</h2>
+            <div class="row g-4 justify-content-center" data-aos="fade-up">
+                
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                    <div class="course-card">
+                        <div class="card-inner">
+                            <div class="card-front blue-card">
+                                <div class="card-icon">🧩</div>
+                                <h3>Blok Kodlama</h3>
+                            </div>
+                            <div class="card-back">
+                                <p>Eğlenceli bloklarla algoritma dünyasına adım at!</p>
+                                <button class="btn btn-light rounded-pill fw-bold">Detaylar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                    <div class="course-card">
+                        <div class="card-inner">
+                            <div class="card-front orange-card">
+                                <div class="card-icon">🐍</div>
+                                <h3>Python</h3>
+                            </div>
+                            <div class="card-back orange-bg">
+                                <p>Lise seviyesinde gerçek dünya projeleri!</p>
+                                <button class="btn btn-light rounded-pill fw-bold">Detaylar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                    <div class="course-card">
+                        <div class="card-inner">
+                            <div class="card-front purple-card">
+                                <div class="card-icon">🤖</div>
+                                <h3>Yapay Zeka</h3>
+                            </div>
+                            <div class="card-back purple-bg">
+                                <p>Kendi modellerini eğit, geleceği yönet!</p>
+                                <button class="btn btn-light rounded-pill fw-bold">Detaylar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+
+    <footer style="background: #1e3a5f !important; padding: 15px 0 !important; border-top: 1px solid #FF6B6B !important; color: white !important; font-family: sans-serif !important;">
+        <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0px 0px;">
+            <div style="margin-bottom: 25px;">
+                <i class="fas fa-phone" style="color: #4ECDC4 !important; font-size: 40px !important; margin-right: 15px;"></i> <span style="font-size: 25px !important; color: white !important;"> <a href="tel:+905300546432" style="text-decoration: none !important; color: white !important;"> Telefon: +90 530 054 64 32</a></span>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <i class="fab fa-whatsapp" style="color: #25D366 !important; font-size: 40px !important; margin-right: 15px;"></i> <span style="font-size: 25px !important; color: white !important;"> <a href="https://chat.whatsapp.com/ETuZ0IPDa7JHbv3ZVSFYJx" target="_blank" style="text-decoration: none !important; color: white !important;"> WhatsApp: Katıl</a> </span> 
+            </div>
+            <div style="margin-bottom: 25px;">
+                <i class="fab fa-youtube" style="color: #FF0000 !important; font-size: 40px !important; margin-right: 15px;"></i> <span style="font-size: 25px !important; color: white !important;"> <a href="https://www.youtube.com/channel/UCwdBvqKDwGs5wW6Aza8uNfg" target="_blank" style="text-decoration: none !important; color: white !important;"> YouTube: Kanalı İzle</a></span>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <i class="fas fa-envelope" style="color: rgb(251, 255, 40) !important; font-size: 40px !important; margin-right: 15px;"></i><span style="font-size: 25px !important; color: white !important;"> <a href="mailto:mustafa.sancak2010@gmail.com" target="_blank" style="text-decoration: none !important; color: white !important;"> E-posta: mustafa.sancak2010@gmail.com</a></span>
+            </div>
+            
+            <div class="container text-center py-4">
+            <p class="mb-0">&copy; 2026 Çevrimiçi Kodlama. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

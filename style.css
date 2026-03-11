@@ -1,1 +1,443 @@
+:root {
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    --dark: #1A1A2E;
+}
+html { scroll-behavior: smooth !important; }
+body { font-family: 'Outfit', sans-serif; }
 
+/* Font Büyüklükleri */
+.hero-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3.5rem, 10vw, 7.5rem); /* Dev boyutta ve responsive */
+    line-height: 0.9;
+    color: var(--dark);
+}
+
+.hero-title span { color: var(--primary); text-shadow: 4px 4px var(--secondary); }
+
+.section-title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.section { opacity: 1 !important; transition: none !important; }
+
+/* Kart Tasarımı (3D Flip) */
+.course-card { width: 320px; height: 400px; perspective: 1000px; }
+.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d;
+box-shadow: inset 0 0 0 4px var(--primary); 
+border-radius: 30px;}
+.course-card:hover .card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+    position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border-radius: 30px; padding: 20px; text-align: center;
+}
+
+.card-front h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; margin-top: 15px; }
+.card-icon { font-size: 5rem; }
+
+.blue-card { border: 4px solid var(--secondary); background: white; }
+.orange-card { border: 4px solid #FF9F43; background: white; }
+.purple-card { border: 4px solid #A55EEA; background: white; }
+
+.card-back { background: var(--dark); color: white; transform: rotateY(180deg); 
+font-family: 'Luckiest Guy', cursive; font-size: 1.2rem; padding: 30px; 
+border-radius: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.orange-bg { background: #FF9F43; }
+.purple-bg { background: #A55EEA; }
+
+/* Navigasyon Butonu */
+.nav-btn {
+height: 40px !important; /* Yüksekliği netledik /
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+padding: 0 30px !important; / Dikey padding'i sıfırladık, sadece yatay verdik */
+background-color: #FF6B6B !important;
+border-radius: 50px !important;
+min-width: 150px !important;
+}
+
+.btn-text {
+position: absolute !important;
+top: 50% !important;
+left: 0 !important;
+right: 0 !important;
+transform: translateY(-50%) !important; /* Dikeyde tam matematiksel orta */
+transition: all 0.3s ease !important;
+text-align: center !important;
+line-height: 1 !important;
+color: white !important;
+font-weight: 800 !important;
+}
+
+.btn-icon {
+position: absolute !important;
+top: 50% !important;
+left: 0 !important;
+right: 0 !important;
+transform: translateY(40px) !important; /* İlk başta aşağıda beklesin */
+opacity: 0 !important;
+transition: all 0.3s ease !important;
+text-align: center !important;
+color: white !important;
+font-size: 24px !important;
+}
+
+.nav-btn:hover .btn-text {
+transform: translateY(-60px) !important; /* Yazı yukarı kaçar */
+opacity: 0 !important;
+}
+
+.nav-btn:hover .btn-icon {
+transform: translateY(-50%) !important; /* Ok tam dikey merkeze oturur */
+opacity: 1 !important;
+}
+
+.main-logo {
+    padding-top: 50px; /* Görselin iç kısmından üst boşluk verir */
+}
+
+.nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #1A1A2E, #FF6B6B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.4s;
+}
+
+/* Navigasyon Linklerinin Temel Hali */
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--dark) !important; /* Siyah yerine senin koyu mavi tonun */
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 8px 0 !important; /* Alt çizgi için mesafe */
+    padding: 15px 0 !important; /* Parmağın basması için geniş alan */
+}
+
+/* Üzerine Gelince Renk Değişimi */
+.navbar-nav .nav-link:hover {
+    color: var(--primary) !important; /* Belirlediğimiz kırmızı/pembe tonu */
+    transform: translateY(-2px); /* Hafif yukarı zıplama efekti */
+}
+
+.hero-subtitle {
+    font-family: 'Outfit', sans-serif;
+    /* Ekrana göre boyutlanan akıllı font: Mobilde 1.1rem, PC'de 1.6rem arası */
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem); 
+    font-weight: 500;
+    color: #555; /* Gözü yormayan yumuşak antrasit */
+    max-width: 800px; /* Metnin çok genişleyip okunabilirliği bozmasını engeller */
+    margin: 0 auto 40px; /* Ortalamak ve alt boşluk vermek için */
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Metnin içindeki önemli kelimeleri vurgulamak istersen */
+.hero-subtitle strong {
+    color: var(--dark);
+    font-weight: 800;
+}
+
+/* Yumuşak Giriş Animasyonu */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+
+}
+
+.custom-footer {
+    background-color: #1e3a5f !important;
+    color: white !important;
+    padding: 30px 0 !important;
+    border-top: 5px solid #FF6B6B;
+    font-family: 'Outfit', sans-serif;
+}
+
+.info-text strong {
+font-family: 'Luckiest Guy', cursive;
+letter-spacing: 1px;
+}
+
+/* Mobilde sağ tarafın sola yaslanması için */
+@media (max-width: 768px) {
+    .footer-item {
+        justify-content: center !important;
+        margin-bottom: 30px;
+        flex-direction: row !important;
+    }
+    .info-text {
+        text-align: left !important;
+    }
+
+    .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+}
+
+@media (max-width: 991px) {
+    /* Menü Panelini Sağ Tarafı Kaplayacak Şekilde Ayarla */
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Başlangıçta ekranın sağında gizli */
+        height: 100vh;
+        width: 280px; /* Menü genişliği */
+        background: white !important;
+        padding: 80px 30px !important;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Yumuşak kayma animasyonu */
+        display: block !important; /* Bootstrap'in gizlemesini engelle */
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    /* Menü Açıldığında Sağa Yasla */
+    .navbar-collapse.show {
+        right: 0 !important; /* Tıklandığında içeri kayar */
+    }
+
+    /* Linkleri Sağa Yasla */
+    .navbar-nav {
+        text-align: right !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.3rem !important;
+        padding: 15px 0 !important;
+        border-bottom: 1px solid #f0f0f0;
+        color: #1A1A2E !important;
+    }
+
+    /* Hemen Başla Butonu Mobilde */
+    .nav-btn {
+        background-color: #FF6B6B !important;
+        color: white !important;
+        border-radius: 50px !important;
+        font-weight: 800 !important;
+        position: relative !important;
+        overflow: hidden !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 12px 30px !important;
+        transition: all 0.3s ease !important;
+        text-decoration: none !important;
+        height: 50px !important;
+        min-width: 160px !important;
+    }
+
+    .btn-text {
+        display: block !important;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
+    }
+
+    .btn-icon {
+        position: absolute !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        transform: translateY(50px) !important;
+        opacity: 0 !important;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
+        font-size: 24px !important;
+    }
+
+    .nav-btn:hover .btn-text {
+        transform: translateY(-50px) !important;
+        opacity: 0 !important;
+    }
+
+    .nav-btn:hover .btn-icon {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+
+    .nav-btn:active .btn-icon {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+
+
+/* Menü Açıldığında Arka Planı Bulanıklaştıran Katman */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px); /* İşte o meşhur bulanıklık */
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Overlay Aktifken Görünür Olsun */
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menüdeki Kapatma Butonu İçin Küçük Ayar */
+#close-menu {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Menü Paneli Temel Ayarı */
+.nav-panel {
+    position: fixed !important;
+    top: 0;
+    right: -320px; /* Ekranın sağında pusuda bekliyor */
+    width: 300px;
+    height: 100vh;
+    background: white !important;
+    z-index: 2000 !important;
+    transition: right 0.4s ease-in-out;
+    padding: 80px 30px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+}
+
+/* MENÜYÜ AÇAN KRİTİK KOMUT */
+.nav-panel.aktif {
+    right: 0 !important; /* Bu sınıf gelince menü içeri kayar */
+}
+
+/* Arka Planı Karartan Katman */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1900;
+    display: none;
+}
+
+.menu-overlay.aktif {
+    display: block !important;
+}
+
+#close-menu:hover {
+    transform: rotate(90deg);
+}
+
+.custom-footer a:hover {
+    color: #FF6B6B !important;
+    text-decoration: underline !important;
+}
+
+.custom-footer div[style="justify-content: flex-end"] {
+    justify-content: center !important;
+    flex-direction: row-reverse !important;
+}
+.custom-footer div[style*="text-align: right"] {
+    text-align: left !important;
+}
+
+/* --- MOBİL NAVİGASYON VE BUTON TAMİRİ --- */
+@media (max-width: 991.98px) {
+    /* 1. Butonun İlk Açılış Ayarı (Hamburger) */
+    .navbar-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='2.5' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform 0.3s ease-in-out !important;
+    }
+
+    /* 2. Sadece Gerçekten Açıkken Çarpı Yap (Aria-Expanded ile) */
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='2.5' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
+        transform: rotate(90deg);
+    }
+
+    /* 3. Sidebar Akıcılığı ve Tıkırtı Engelleme */
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        height: 100vh;
+        width: 280px;
+        background: white !important;
+        padding: 60px 30px !important;
+        /* Animasyonu hızlandırdık ve daha akıcı yaptık */
+        transition: right 0.3s ease-out !important; 
+        display: block !important;
+        overflow: hidden; /* Yazıların tık tık yapmasını önler */
+        z-index: 1000;
+    }
+
+    /* Kapanırken yazıların çirkin görünmesini engellemek için */
+    .navbar-collapse:not(.show) .navbar-collapse-inner {
+        opacity: 0;
+        transition: opacity 0.1s;
+    }
+
+    .navbar-toggler {
+        z-index: 1100 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* --- MASAÜSTÜ HİZALAMA TAMİRİ --- */
+@media (min-width: 992px) {
+    /* İçerik sarmalayıcısını genişlikten kurtar ve sağa yasla */
+    .navbar-collapse-inner {
+        width: auto !important;
+        margin-left: auto !important;
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+
+    .navbar-nav {
+        margin-left: auto !important;
+        flex-direction: row !important;
+    }
+
+    .nav-btn {
+        width: auto !important;
+        padding: 10px 25px !important;
+        margin-left: 20px !important;
+        margin-top: 0 !important;
+        display: inline-block !important;
+    }
+}
