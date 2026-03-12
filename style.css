@@ -465,3 +465,10 @@ a:visited {
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='3' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
 }
+
+/* Sidebar'ı head'deki JS animasyonundan korur */
+#navbarNav.navbar-collapse {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
