@@ -441,3 +441,14 @@ letter-spacing: 1px;
         display: inline-block !important;
     }
 }
+
+/* Bu blok kalsın, sadece içini böyle yap */
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+/* Eğer tıklandıktan sonra mor olmasını da istemiyorsan bunu da ekle */
+a:visited {
+    color: black !important;
+}

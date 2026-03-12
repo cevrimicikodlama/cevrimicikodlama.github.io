@@ -33,6 +33,34 @@
     
         section.style.opacity = opacity;}); });
     </script>
+    <style>
+        /* Footer'ı aşağı itmek için gerekli yapı */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ekran yüksekliğinin tamamını kapla */
+            margin: 0;
+        }
+        .main-content {
+            flex: 1; /* İçeriği orta kısma yay, footer'ı aşağı it */
+        }
+        
+        /* Bakınız Kısmı İçin Özel Stil */
+        .related-links {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        .related-card {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-left: 5px solid #1e3a5f;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -46,9 +74,9 @@
                 <div>
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Ana Sayfa</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#courses">Eğitimler</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="index.html#courses">Eğitimler</a></li>
                         <li class="nav-item">
-                            <a class="nav-link nav-btn" href="basla.html">
+                            <a class="nav-link nav-btn" href="index.html#contact">
                             <span class="btn-text">Hemen Başla</span>
                             <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
                             </a>
@@ -58,75 +86,42 @@
             </div>
         </div>
     </nav>
-
-    <section id="home" class="hero d-flex align-items-center justify-content-center">
-        <div class="container text-center" data-aos="zoom-in">
-            <div  class="logo-wrapper mb-4">
-                <img src="logo.png" alt="Logo" class="main-logo img-fluid">
+        <div class="main-content">
+        <div class="container py-5 mt-5">
+            <h1 class="text-center display-4 fw-bold" style="color: #1e3a5f;">
+                <i class="fas fa-cubes me-2"></i>Yapay Zeka Nedir?
+            </h1>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-10">
+                    <p class="lead text-secondary" style="font-size: 20px; line-height: 1.8;">
+                        Yapay zeka, bilgisayarların insan zekasına benzer şekilde düşünmesini ve karar vermesini sağlayan bir teknolojidir. Bu teknoloji, makine öğrenimi, derin öğrenme ve doğal dil işleme gibi yöntemlerle çalışır. Yapay zeka, sadece geleceğin teknolojisi değil, aynı zamanda günümüzün de önemli bir parçasıdır. Akıllı asistanlar, öneri sistemleri ve otonom araçlar gibi birçok uygulama yapay zekanın gücünü kullanır.
+                    </p>
+                    <p style="font-size: 18px; color: #555;">
+                        Yapay zeka, sadece teknolojik bir gelişme değil, aynı zamanda etik ve toplumsal bir konudur. İnsanların işlerini kaybetme korkusu, veri gizliliği endişeleri ve yapay zekanın kontrolünün nasıl sağlanacağı gibi sorular, bu teknolojinin yaygınlaşmasıyla birlikte ortaya çıkan önemli tartışmalardır. Ancak doğru kullanıldığında, yapay zeka insan yaşamını kolaylaştırabilir ve birçok alanda devrim yaratabilir.
+                    </p>
+                </div>
             </div>
-            <h1 class="hero-title">GELECEĞİ SENİNLE <br><span>KODLUYORUZ!</span></h1>
-            <p class="hero-subtitle mx-auto">İlkokuldan liseye; blok kodlama, Python ve Yapay Zeka ile tanışın.</p>
-        </div>
-    </section>
 
-    <section id="courses" class="py-3">
-        <div class="container text-center">
-            <h2 class="section-title mb-5 mt-2" data-aos="fade-up">EĞİTİM PROGRAMLARIMIZ</h2>
-            <div class="row g-4 justify-content-center" data-aos="fade-up">
-                
-                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                    <div class="course-card">
-                        <div class="card-inner">
-                            <div class="card-front blue-card">
-                                <div class="card-icon">🧩</div>
-                                <h3>Blok Kodlama</h3>
-                            </div>
-                            <div class="card-back">
-                                <p>Eğlenceli bloklarla algoritma dünyasına adım at!</p>
-                                <button class="btn btn-light rounded-pill fw-bold"><a href="detay-blok-programlama.html">Detaylar</a></button>
-                            </div>
-                        </div>
+            <div class="related-links container mt-5">
+                <h4 class="fw-bold mb-4">Diğer Popüler Konularımız</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="detay-python-1.html" class="related-card">
+                            <i class="fab fa-python me-2"></i> <strong>Sıradaki Adım: Python</strong>
+                            <p class="small mb-0 mt-1">Bloklardan metin tabanlı gerçek kodlamaya geçiş yapın.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="detay-blok-programlama.html" class="related-card">
+                            <i class="fas fa-cubes me-2"></i> <strong>Blok Tabanlı Programlama</strong>
+                            <p class="small mb-0 mt-1">Kod yazmanın eğlenceli ve kolay yolu.</p>
+                        </a>
                     </div>
                 </div>
-
-                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                    <div class="course-card">
-                        <div class="card-inner">
-                            <div class="card-front orange-card">
-                                <div class="card-icon">🐍</div>
-                                <h3>Python</h3>
-                            </div>
-                            <div class="card-back orange-bg">
-                                <p>Lise seviyesinde gerçek dünya projeleri!</p>
-                                <button class="btn btn-light rounded-pill fw-bold"><a href="detay-python-1.html">Detaylar</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                    <div class="course-card">
-                        <div class="card-inner">
-                            <div class="card-front purple-card">
-                                <div class="card-icon">🤖</div>
-                                <h3>Yapay Zeka</h3>
-                            </div>
-                            <div class="card-back purple-bg">
-                                <p>Kendi modellerini eğit, geleceği yönet!</p>
-                                <button class="btn btn-light rounded-pill fw-bold"><a href="detay-yapay-zeka.html">Detaylar</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
-
+    </div>
     <footer style="background: #1e3a5f !important; padding: 15px 0 !important; border-top: 1px solid #FF6B6B !important; color: white !important; font-family: sans-serif !important;">
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0px 0px;">
             <div style="margin-bottom: 25px;">
