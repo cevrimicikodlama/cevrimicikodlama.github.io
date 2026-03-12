@@ -475,11 +475,14 @@ a:visited {
 
 /* Hakkımda metni için özel stil - EL YAZISINI KALDIRDIK */
 .lead-text {
-    font-family: 'Outfit', sans-serif !important; /* Kesinlikle Outfit olacak */
-    font-size: 1.2rem !important;
+    /* Buradaki 'Dancing Script' ibaresini sildik, yerine ana fontunu koyduk */
+    font-family: 'Outfit', sans-serif !important; 
+    font-size: 1.2rem !important; /* Statik px yerine responsive rem daha iyi olur */
     font-weight: 500 !important;
     line-height: 1.6 !important;
     color: #2c3e50 !important;
+    letter-spacing: 0.5px !important;
+    text-align: left;
 }
 
 .highlight-text {
@@ -506,12 +509,4 @@ a:visited {
 .custom-form-btn:hover span, 
 .custom-form-btn:hover i {
     color: white !important;
-}
-
-* {
-    font-family: 'Outfit', sans-serif !important;
-}
-
-.hero-title, .section-title, .step-number {
-    font-family: 'Bangers', cursive !important; /* Başlıklar hariç her şeyi Outfit yap dedik */
 }
