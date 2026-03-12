@@ -437,3 +437,15 @@ a:visited {
     transform: skewX(-5deg); /* Zorla eğiyoruz */
     display: inline-block;
 }
+
+/* Menü AÇIKKEN (aria-expanded="true") ikon çarpıya dönsün */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='2.5' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
+    transform: rotate(90deg); /* Hafif bir artistik dönüş */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menü KAPALIYKEN (normal hali) */
+.navbar-toggler .navbar-toggler-icon {
+    transition: all 0.3s ease-in-out;
+}
