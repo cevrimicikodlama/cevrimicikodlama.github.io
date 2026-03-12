@@ -470,3 +470,22 @@ a:visited {
     border-bottom: none !important; /* O tire şeklindeki çizgiyi tamamen kaldırır */
     text-decoration: none !important; /* Tarayıcıdan gelen varsayılan çizgileri de engeller */
 }
+
+/* Butonun normal hali */
+.custom-form-btn {
+    transition: all 0.3s ease !important; /* Tüm değişimlerin 0.3 saniyede yumuşak olmasını sağlar */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Hafif bir gölge */
+}
+
+/* Üzerine gelindiğinde (Hover efekti) */
+.custom-form-btn:hover {
+    background-color: #0c9289 !important; /* Arka plan senin ikon rengin olsun */
+    transform: translateY(-5px); /* Butonu 5 piksel yukarı kaldırır */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Gölgeyi derinleştirerek derinlik hissi verir */
+}
+
+/* Üzerine gelindiğinde yazı ve ikon rengini beyaza çevirelim */
+.custom-form-btn:hover span, 
+.custom-form-btn:hover i {
+    color: white !important;
+}
