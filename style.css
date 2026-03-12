@@ -510,3 +510,25 @@ a:visited {
 .custom-form-btn:hover i {
     color: white !important;
 }
+
+/* Mobilde kart detaylarını ve eğitim yazılarını düzeltme */
+.card-back, 
+.card-inner, 
+.step-card p, 
+.step-card h4, 
+.course-card h3 {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal !important;
+    text-transform: none !important;
+}
+
+/* Eğer hala gitmiyorsa, genel bir mobil font sıfırlaması */
+@media (max-width: 768px) {
+    * {
+        font-family: 'Outfit', sans-serif !important;
+    }
+    /* Sadece Bangers fontu kalması gereken yerleri geri alıyoruz */
+    .hero-title, .section-title, .nav-logo {
+        font-family: 'Bangers', cursive !important;
+    }
+}
