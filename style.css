@@ -452,3 +452,21 @@ a {
 a:visited {
     color: black !important;
 }
+
+/* Hakkımda metni için özel stil */
+.lead-text {
+    font-family: 'Dancing Script', cursive !important; /* El yazısı fontu */
+    font-size: 24px !important; /* El yazısı için ideal büyüklük */
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+    color: #2c3e50 !important;
+    letter-spacing: 0.5px !important;
+    text-align: left; /* El yazısında iki yana yaslamak (justify) çirkin durur, sola yaslayalım */
+}
+
+.highlight-text {
+    font-weight: 700 !important;
+    color: #1e3a5f !important; /* Okul ismini biraz daha belirgin bir mavi yapar */
+    border-bottom: none !important; /* O tire şeklindeki çizgiyi tamamen kaldırır */
+    text-decoration: none !important; /* Tarayıcıdan gelen varsayılan çizgileri de engeller */
+}
