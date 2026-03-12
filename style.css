@@ -210,38 +210,27 @@ letter-spacing: 1px;
     .info-text {
         text-align: left !important;
     }
-
-    .navbar-collapse {
-        background: white;
-        padding: 20px;
-        border-radius: 20px;
-        margin-top: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
 }
 
 @media (max-width: 991px) {
-    /* Menü Panelini Sağ Tarafı Kaplayacak Şekilde Ayarla */
     .navbar-collapse {
-        position: fixed;
+        position: fixed !important;
         top: 0;
-        right: -100%; /* Başlangıçta ekranın sağında gizli */
+        right: -100% !important; /* KAPALIYKEN BURADA DURACAK */
         height: 100vh;
-        width: 280px; /* Menü genişliği */
+        width: 280px;
         background: white !important;
-        padding: 80px 30px !important;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Yumuşak kayma animasyonu */
-        display: block !important; /* Bootstrap'in gizlemesini engelle */
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 1000;
+        transition: right 0.4s ease-in-out !important; /* KAYMA EFEKTİ */
+        display: block !important;
+        z-index: 2000;
     }
 
-    /* Menü Açıldığında Sağa Yasla */
+    /* MENÜ AÇILDIĞINDA BURASI DEVREYE GİRER */
     .navbar-collapse.show {
-        right: 0 !important; /* Tıklandığında içeri kayar */
+        right: 0 !important; 
     }
 
-    /* Linkleri Sağa Yasla */
+    /* 3. Menü İçindeki Linkler */
     .navbar-nav {
         text-align: right !important;
     }
@@ -250,7 +239,7 @@ letter-spacing: 1px;
         font-size: 1.3rem !important;
         padding: 15px 0 !important;
         border-bottom: 1px solid #f0f0f0;
-        color: #1A1A2E !important;
+        color: var(--dark) !important;
     }
 
     /* Hemen Başla Butonu Mobilde */
@@ -307,70 +296,10 @@ letter-spacing: 1px;
     }
 }
 
-
-
-/* Menü Açıldığında Arka Planı Bulanıklaştıran Katman */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px); /* İşte o meşhur bulanıklık */
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 1040;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-}
-
-/* Overlay Aktifken Görünür Olsun */
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
 /* Menüdeki Kapatma Butonu İçin Küçük Ayar */
 #close-menu {
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-/* Menü Paneli Temel Ayarı */
-.nav-panel {
-    position: fixed !important;
-    top: 0;
-    right: -320px; /* Ekranın sağında pusuda bekliyor */
-    width: 300px;
-    height: 100vh;
-    background: white !important;
-    z-index: 2000 !important;
-    transition: right 0.4s ease-in-out;
-    padding: 80px 30px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-}
-
-/* MENÜYÜ AÇAN KRİTİK KOMUT */
-.nav-panel.aktif {
-    right: 0 !important; /* Bu sınıf gelince menü içeri kayar */
-}
-
-/* Arka Planı Karartan Katman */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
-    z-index: 1900;
-    display: none;
-}
-
-.menu-overlay.aktif {
-    display: block !important;
 }
 
 #close-menu:hover {
@@ -390,64 +319,17 @@ letter-spacing: 1px;
     text-align: left !important;
 }
 
-/* --- MOBİL NAVİGASYON VE BUTON TAMİRİ --- */
-@media (max-width: 991.98px) {
-    /* 1. Butonun İlk Açılış Ayarı (Hamburger) */
-    .navbar-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='2.5' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: transform 0.3s ease-in-out !important;
-    }
-
-    /* 2. Sadece Gerçekten Açıkken Çarpı Yap (Aria-Expanded ile) */
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='2.5' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
-        transform: rotate(90deg);
-    }
-
-    /* 3. Sidebar Akıcılığı ve Tıkırtı Engelleme */
-    .navbar-collapse {
-        position: fixed;
-        top: 0;
-        right: -100%; 
-        height: 100vh;
-        width: 280px;
-        background: white !important;
-        padding: 60px 30px !important;
-        /* Animasyonu hızlandırdık ve daha akıcı yaptık */
-        transition: right 0.3s ease-out !important; 
-        display: block !important;
-        overflow: hidden; /* Yazıların tık tık yapmasını önler */
-        z-index: 1000;
-    }
-
-    /* Kapanırken yazıların çirkin görünmesini engellemek için */
-    .navbar-collapse:not(.show) .navbar-collapse-inner {
-        opacity: 0;
-        transition: opacity 0.1s;
-    }
-
-    .navbar-toggler {
-        z-index: 1100 !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-}
-
 /* --- MASAÜSTÜ HİZALAMA TAMİRİ --- */
 @media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
     /* İçerik sarmalayıcısını genişlikten kurtar ve sağa yasla */
     .navbar-collapse-inner {
         width: auto !important;
         margin-left: auto !important;
     }
-
-    .navbar-collapse {
-        display: flex !important;
-        justify-content: flex-end !important;
-    }
-
     .navbar-nav {
         margin-left: auto !important;
         flex-direction: row !important;
@@ -554,14 +436,4 @@ a:visited {
     letter-spacing: 5px !important;
     transform: skewX(-5deg); /* Zorla eğiyoruz */
     display: inline-block;
-}
-
-/* 4. MOBİLDE MENÜNÜN GÖRÜNMESİNİ SAĞLA */
-@media (max-width: 991px) {
-    .navbar-collapse.show {
-        right: 0 !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
 }
