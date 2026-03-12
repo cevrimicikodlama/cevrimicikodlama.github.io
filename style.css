@@ -216,18 +216,20 @@ letter-spacing: 1px;
     .navbar-collapse {
         position: fixed !important;
         top: 0;
-        right: -100% !important; /* KAPALIYKEN BURADA DURACAK */
+        right: -100% !important; /* Kapalıyken gizli */
         height: 100vh;
         width: 280px;
         background: white !important;
-        transition: right 0.4s ease-in-out !important; /* KAYMA EFEKTİ */
+        transition: right 0.4s ease-in-out !important;
         display: block !important;
         z-index: 2000;
+        /* Üstteki animasyon scripti Sidebar'ı bozmasın diye bunlar ŞART: */
+        opacity: 1 !important;
+        transform: none !important;
     }
 
-    /* MENÜ AÇILDIĞINDA BURASI DEVREYE GİRER */
     .navbar-collapse.show {
-        right: 0 !important; 
+        right: 0 !important; /* Açılınca buraya gelir */
     }
 
     /* 3. Menü İçindeki Linkler */
@@ -322,8 +324,13 @@ letter-spacing: 1px;
 /* --- MASAÜSTÜ HİZALAMA TAMİRİ --- */
 @media (min-width: 992px) {
     .navbar-collapse {
+        position: static !important;
         display: flex !important;
-        justify-content: flex-end !important;
+        right: auto !important;
+        height: auto !important;
+        width: auto !important;
+        opacity: 1 !important; /* Animasyon scriptini burada da eziyoruz */
+        transform: none !important;
     }
     /* İçerik sarmalayıcısını genişlikten kurtar ve sağa yasla */
     .navbar-collapse-inner {
