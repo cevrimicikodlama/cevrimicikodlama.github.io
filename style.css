@@ -438,14 +438,20 @@ a:visited {
     display: inline-block;
 }
 
-/* Menü AÇIKKEN (aria-expanded="true") ikon çarpıya dönsün */
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='2.5' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
-    transform: rotate(90deg); /* Hafif bir artistik dönüş */
+/* 1. Hamburger ve Çarpı İkonunu Senin Pembe Renginle Sabitle */
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='3' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
     transition: all 0.3s ease-in-out;
 }
 
-/* Menü KAPALIYKEN (normal hali) */
-.navbar-toggler .navbar-toggler-icon {
-    transition: all 0.3s ease-in-out;
+/* 2. Menü Açıldığında Çarpıya Dönüşsün */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='3' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
+}
+
+/* 3. O Çirkin Gri Çerçeveyi Yok Et */
+.navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
