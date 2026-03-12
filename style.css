@@ -473,15 +473,16 @@ a:visited {
     color: black !important;
 }
 
-/* Hakkımda metni için özel stil */
+/* Hakkımda metni için özel stil - EL YAZISINI KALDIRDIK */
 .lead-text {
-    font-family: 'Dancing Script', cursive !important; /* El yazısı fontu */
-    font-size: 24px !important; /* El yazısı için ideal büyüklük */
+    /* Buradaki 'Dancing Script' ibaresini sildik, yerine ana fontunu koyduk */
+    font-family: 'Outfit', sans-serif !important; 
+    font-size: 1.2rem !important; /* Statik px yerine responsive rem daha iyi olur */
     font-weight: 500 !important;
     line-height: 1.6 !important;
     color: #2c3e50 !important;
     letter-spacing: 0.5px !important;
-    text-align: left; /* El yazısında iki yana yaslamak (justify) çirkin durur, sola yaslayalım */
+    text-align: left;
 }
 
 .highlight-text {
