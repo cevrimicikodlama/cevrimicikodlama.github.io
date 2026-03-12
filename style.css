@@ -532,3 +532,36 @@ a:visited {
         font-family: 'Bangers', cursive !important;
     }
 }
+
+/* 1. İKONLARIN ÇARPI GÖRÜNMESİNİ ENGELLE */
+.fas, .fab, .fa {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-weight: 900 !important;
+    display: inline-block !important;
+    font-style: normal !important;
+}
+
+/* 2. EL YAZISINI HER YERDEN SİL (MOBİL DAHİL) */
+.card-back, .step-card p, .lead-text, .card-front h3 {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal !important;
+}
+
+/* 3. KODLUYORUZ YAZISINI SIKI VE İTALİK YAP */
+.hero-title span {
+    font-family: 'Bangers', cursive !important;
+    font-style: italic !important;
+    letter-spacing: 5px !important;
+    transform: skewX(-5deg); /* Zorla eğiyoruz */
+    display: inline-block;
+}
+
+/* 4. MOBİLDE MENÜNÜN GÖRÜNMESİNİ SAĞLA */
+@media (max-width: 991px) {
+    .navbar-collapse.show {
+        right: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
