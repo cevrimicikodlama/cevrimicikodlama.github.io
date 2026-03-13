@@ -25,7 +25,11 @@
         bolumler.forEach(bolum => {
             const mesafe = bolum.getBoundingClientRect();
             const ekranBoyu = window.innerHeight;
-            let gorunurluk = 1 - (mesafe.top / (ekranBoyu / 1.3));
+            // 1.3 yerine 2 veya 3 yaparsan bölümler daha "inatçı" olur, hemen kaybolmaz
+            let gorunurluk = 1 - (mesafe.top / (ekranBoyu / 2)); 
+
+            // Ek olarak: Bölüm ekranın üstünden çıksa bile görünür kalsın istiyorsan:
+            if (mesafe.top < 0) gorunurluk = 1;
         
             if (gorunurluk < 0) gorunurluk = 0;
             if (gorunurluk > 1) gorunurluk = 1;
