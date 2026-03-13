@@ -38,6 +38,30 @@
     window.addEventListener('scroll', animasyonuGuncelle);
     window.addEventListener('load', animasyonuGuncelle);
     </script>
+    <script>
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        const sidebar = document.querySelector('#navbarNav');
+
+        // Dokunma başladığında pozisyonu al
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+
+        // Dokunma bittiğinde hesapla
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            // Eğer menü açıksa ve parmak sağdan sola (en az 50px) kaydırıldıysa
+            if (sidebar.classList.contains('show') && (touchstartX - touchendX > 50)) {
+            document.querySelector('.navbar-toggler').click(); // Menüyü kapat
+            }
+        }
+    </script>
 
     <style>
         /* Footer'ı aşağı itmek için gerekli yapı */

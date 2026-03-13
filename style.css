@@ -213,20 +213,13 @@ letter-spacing: 1px;
 }
 
 @media (max-width: 991px) {
-    .navbar-collapse {
-        position: fixed !important;
-        top: 0;
-        right: -100% !important; /* Kapalıyken gizli */
-        height: 100vh;
-        width: 280px;
-        background: white !important;
-        transition: right 0.4s ease-in-out !important;
-        display: block !important;
-        z-index: 2000;
-        /* Üstteki animasyon scripti Sidebar'ı bozmasın diye bunlar ŞART: */
-        opacity: 1 !important;
-        transform: none !important;
-    }
+    /* Sidebar'ı About sayfasındaki o lanet animasyondan koru */
+.navbar-collapse {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    position: fixed !important;
+    top: 0 !important;}
 
     .navbar-collapse.show {
         right: 0 !important; /* Açılınca buraya gelir */
