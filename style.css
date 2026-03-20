@@ -285,22 +285,23 @@ letter-spacing: 1px;
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: rgba(26, 26, 46, 0.72);
+    background: var(--primary);
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 2px solid var(--secondary);
     z-index: 9999;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.65);
     opacity: 0;
     visibility: hidden;
-    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease, background .25s ease;
 }
 .scroll-to-top:hover {
     opacity: 1;
     transform: translateY(-2px);
+    background: #FF9F43;
 }
 .scroll-to-top.show {
     opacity: 1;
