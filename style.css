@@ -283,6 +283,27 @@ letter-spacing: 1px;
     }
 
     .navbar-nav { text-align: center !important; }
+
+    /* Mobilde nav linkleri sağdan sola kayan şekilde gelsin */
+    .navbar-collapse .nav-link {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    .navbar-collapse.show .nav-link {
+        animation: slideInFromRight 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(1) .nav-link { animation-delay: 0.1s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(2) .nav-link { animation-delay: 0.18s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(3) .nav-link { animation-delay: 0.26s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(4) .nav-link { animation-delay: 0.34s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(5) .nav-link { animation-delay: 0.42s; }
+}
+
+@keyframes slideInFromRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 /* Yukarı taşıma butonu */
