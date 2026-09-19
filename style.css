@@ -230,56 +230,68 @@ letter-spacing: 1px;
 }
 
 @media (max-width: 991px) {
-    /* Menüyü sidebar olmaktan çıkarıyoruz */
     .navbar-collapse {
         position: absolute !important;
-        top: 100%; /* Navbar'ın tam altına yapışır */
+        top: calc(100% + 8px);
         left: 0;
+        right: 0;
         width: 100%;
-        background: white !important;
-        padding: 20px !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        border-radius: 0 0 20px 20px;
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 1px solid rgba(30, 58, 95, 0.08);
+        border-radius: 0 0 22px 22px;
+        box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
         z-index: 9999 !important;
-        /* Animasyonlar */
-        display: none !important;
-        max-height: 0;
+        display: block !important;
+        max-height: 0 !important;
         overflow: hidden;
         opacity: 0;
-        transform: translateY(-12px);
-        transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, transform 0.3s ease;
+        visibility: hidden;
+        pointer-events: none;
+        padding: 0 20px !important;
+        transform: translateY(-14px) scaleY(0.96);
+        transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease, transform 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
     }
 
-    .navbar-collapse.collapsing,
     .navbar-collapse.show {
-        display: block !important;
-    }
-
-    /* Menü açıldığında */
-    .navbar-collapse.show {
-        max-height: 700px !important;
+        max-height: 560px !important;
         opacity: 1 !important;
-        transform: translateY(0) !important;
-        transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, transform 0.35s ease;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+        transform: translateY(0) scaleY(1) !important;
     }
 
-    .navbar-nav { text-align: center !important; }
+    .navbar-nav {
+        text-align: center !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.15rem;
+    }
 
-    /* Mobilde nav linkleri sağdan sola kayan şekilde gelsin */
+    .navbar-collapse .nav-item {
+        width: 100%;
+    }
+
     .navbar-collapse .nav-link {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
     }
 
     .navbar-collapse.show .nav-link {
-        animation: slideInFromRight 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(1) .nav-link { animation-delay: 0.1s; }
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(2) .nav-link { animation-delay: 0.18s; }
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(3) .nav-link { animation-delay: 0.26s; }
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(4) .nav-link { animation-delay: 0.34s; }
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(5) .nav-link { animation-delay: 0.42s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(1) .nav-link { transition-delay: 0.06s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(2) .nav-link { transition-delay: 0.12s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(3) .nav-link { transition-delay: 0.18s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(4) .nav-link { transition-delay: 0.24s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(5) .nav-link { transition-delay: 0.3s; }
+    .navbar-collapse.show .navbar-nav .nav-item:nth-child(6) .nav-link { transition-delay: 0.36s; }
 }
 
 @keyframes slideInFromRight {
@@ -499,11 +511,23 @@ a:visited {
 
 /* 1. Butonu en öne çıkar ve border'ı tamamen sil */
 .navbar-toggler {
-    z-index: 2500 !important; /* Menü panelinden (2000) daha yüksek olmalı */
+    z-index: 2500 !important;
     border: none !important;
     box-shadow: none !important;
     outline: none !important;
-    padding: 0 !important; /* Etrafındaki gereksiz boşluğu alır */
+    padding: 0 !important;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.navbar-toggler:hover {
+    background: rgba(255, 107, 107, 0.08);
+}
+
+.navbar-toggler[aria-expanded="true"] {
+    transform: rotate(90deg);
 }
 
 /* 2. İkonun rengini ve şeklini koru */
@@ -511,11 +535,13 @@ a:visited {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='3' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
     width: 30px;
     height: 30px;
+    transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 /* 3. Menü açıkken çarpı hali (Yine en üstte) */
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23FF6B6B' stroke-width='3' stroke-linecap='round' d='M8 8l16 16M8 24L24 8'/%3E%3C/svg%3E") !important;
+    transform: scale(1.05);
 }
 
 /* Sidebar'ı head'deki JS animasyonundan korur */
