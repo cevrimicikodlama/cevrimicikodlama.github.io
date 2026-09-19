@@ -146,21 +146,52 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger Menü Tamiri
             const toggler = document.querySelector('.navbar-toggler');
-            const collapse = document.querySelector('#navbarNav');
-            if(toggler && collapse) {
-                toggler.onclick = function() {
-                    collapse.classList.toggle('show');
-                };
-            }
+            const menu = document.querySelector('#navbarNav');
 
-            // Sayfa açılış animasyonu
+            if (!toggler || !menu) return;
+
+            const closeMenu = function() {
+                menu.classList.remove('show');
+                toggler.classList.add('collapsed');
+                toggler.setAttribute('aria-expanded', 'false');
+            };
+
+            const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+            toggler.addEventListener('click', function() {
+                if (menu.classList.contains('show')) {
+                    closeMenu();
+                } else {
+                    menu.classList.add('show');
+                    toggler.classList.remove('collapsed');
+                    toggler.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (!href) return;
+
+                const targetPage = (new URL(href, window.location.href).pathname.split('/').pop() || 'index.html').toLowerCase();
+                const isCurrentPageLink = href.startsWith('#') || targetPage === currentPage;
+
+                if (!isCurrentPageLink) return;
+
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 991) {
+                        closeMenu();
+                    }
+                });
+            });
+
             const content = document.querySelector('.main-content');
-            if(content) {
+            if (content) {
                 content.style.opacity = "0";
                 content.style.transition = "opacity 1s ease-out";
-                setTimeout(() => content.style.opacity = "1", 100);
+                setTimeout(function() {
+                    content.style.opacity = "1";
+                }, 100);
             }
         });
     </script>

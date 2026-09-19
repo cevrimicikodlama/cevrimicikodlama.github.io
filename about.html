@@ -48,31 +48,54 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const toggler = document.querySelector('.navbar-toggler');
-        const menu = document.querySelector('#navbarNav');
+            const toggler = document.querySelector('.navbar-toggler');
+            const menu = document.querySelector('#navbarNav');
 
-        if(toggler && menu) {
-            toggler.addEventListener('click', function() {
-                // Eğer kapalıysa aç, açıksa kapat
-                if (menu.classList.contains('show')) {
-                menu.classList.remove('show');
-                toggler.setAttribute('aria-expanded', 'false');
-                } else {
-                menu.classList.add('show');
-                toggler.setAttribute('aria-expanded', 'true');
-                }
-            });
-
-            // Menü içindeki bir linke tıklayınca otomatik kapat
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
+            if (toggler && menu) {
+                const closeMenu = function() {
                     menu.classList.remove('show');
+                    toggler.classList.add('collapsed');
                     toggler.setAttribute('aria-expanded', 'false');
+                };
+
+                const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+                toggler.addEventListener('click', function() {
+                    if (menu.classList.contains('show')) {
+                        closeMenu();
+                    } else {
+                        menu.classList.add('show');
+                        toggler.classList.remove('collapsed');
+                        toggler.setAttribute('aria-expanded', 'true');
+                    }
                 });
-            });
-        }
-        // İlk yüklemede animasyonu çalıştır
-        animasyonuGuncelle();
+
+                document.querySelectorAll('.nav-link').forEach(function(link) {
+                    const href = link.getAttribute('href');
+                    if (!href) return;
+
+                    const targetPage = (new URL(href, window.location.href).pathname.split('/').pop() || 'index.html').toLowerCase();
+                    const isCurrentPageLink = href.startsWith('#') || targetPage === currentPage;
+
+                    if (!isCurrentPageLink) return;
+
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 991) {
+                            closeMenu();
+                        }
+                    });
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!menu.contains(e.target) && !toggler.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+            }
+
+            if (typeof animasyonuGuncelle === 'function') {
+                animasyonuGuncelle();
+            }
         });
     </script>
 
