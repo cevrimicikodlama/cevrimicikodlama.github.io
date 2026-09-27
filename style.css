@@ -336,11 +336,16 @@ opacity: 1 !important;
     font-weight: 700;
     font-size: 1.1rem;
     color: var(--dark) !important; /* Siyah yerine senin koyu mavi tonun */
-    margin: 0 10px;
+    margin: 0 14px;
     position: relative;
     transition: all 0.3s ease;
     padding: 8px 0 !important; /* Alt çizgi için mesafe */
     padding: 15px 0 !important; /* Parmağın basması için geniş alan */
+    white-space: nowrap;
+}
+
+.navbar-nav {
+    gap: 6px;
 }
 
 /* Üzerine Gelince Renk Değişimi */
@@ -890,6 +895,28 @@ opacity: 1 !important;
     font-family: 'Outfit', sans-serif;
 }
 
+footer .row {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+}
+
+footer .row > div {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+}
+
+footer .container.text-center.py-2 {
+    width: 100% !important;
+    text-align: left !important;
+    padding-left: 0 !important;
+}
+
 .info-text strong {
 font-family: 'Luckiest Guy', cursive;
 letter-spacing: 1px;
@@ -969,6 +996,8 @@ letter-spacing: 1px;
         padding-top: 18px !important;
         padding-bottom: 18px !important;
         transform: translateY(0) scaleY(1) !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
     .navbar-nav {
