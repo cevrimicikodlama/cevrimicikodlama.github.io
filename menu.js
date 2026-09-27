@@ -97,6 +97,45 @@ document.addEventListener('DOMContentLoaded', function () {
             'Hemen Başla': 'Get Started',
             'GELECEĞİ SENİNLE': 'WE BUILD THE FUTURE',
             'KODLUYORUZ!': 'WITH YOU!',
+            'Ksilofon Dünyası': 'Xylophone World',
+            'PEGI 3': 'PEGI 3',
+            'Çocuklar için uygundur ✅': 'Suitable for children ✅',
+            'Google Play\'de Aç': 'Open in Google Play',
+            'Webde Katıl': 'Join on Web',
+            'Ksilofon Dünyası ile müziğin ritmini keşfedin!': 'Discover the rhythm of music with Xylophone World!',
+            'Çocuklar ve müziğe yeni başlayanlar için tasarlanan bu sanal enstrüman, basit, eğlenceli ve sezgisel bir deneyim sunar.': 'This virtual instrument is designed for children and beginners, offering a simple, fun and intuitive experience.',
+            'Renkli tuşları ve dengeli sesleriyle kendi melodinizi oluşturabilir, müzik kulağınızı geliştirebilirsiniz.': 'With its colourful keys and balanced sounds, you can create your own melody and develop your musical ear.',
+            'Notaları Öğren': 'Learn Notes',
+            'Ritim ve melodi': 'Rhythm and melody',
+            'Çaldır ve Kaydet': 'Play and Record',
+            'Kendi şarkını üret': 'Create your own song',
+            'Hazır Şarkılar': 'Ready Songs',
+            'Hemen çalmaya başla': 'Start playing now',
+            'Kolay Çalma': 'Easy Play',
+            'İnteraktif ve eğlenceli': 'Interactive and fun',
+            'Öne Çıkan Özellikler': 'Featured Features',
+            'Kolay, eğlenceli ve çocuk dostu bir müzik deneyimi': 'An easy, fun and child-friendly music experience',
+            'Net Sesler': 'Clear Sounds',
+            'Temiz ve dengeli enstrüman sesleriyle ritmi doğru şekilde öğrenirsiniz.': 'Learn rhythm with clean and balanced instrument sounds.',
+            'Renkli Arayüz': 'Colourful Interface',
+            'Çocukların kolayca yönlendirebileceği sade ve canlı görsel tasarım.': 'Simple and lively design that children can navigate easily.',
+            'Hızlı Tepki': 'Fast Response',
+            'Dokunmatik kullanım, gecikme olmadan anlık ses ve hareket geri bildirimi.': 'Touch-based use with instant sound and motion feedback and no lag.',
+            'Nasıl Çalışır?': 'How It Works?',
+            'Üç adımda müzik yolculuğunuz başlıyor': 'Your music journey starts in three steps',
+            'Uygulama İçinden Görünümler': 'App Screenshots',
+            'Renkli ve eğlenceli arayüzün detayları': 'Details of the colourful, fun interface',
+            'Ana ekran': 'Home screen',
+            'Nasıl oynanır': 'How to play',
+            'Nota tanıtımı': 'Note guide',
+            'Müzik çalma': 'Music playing',
+            'Uygulamanın öğrenme ekranında çalgının seslerini ve notalarını keşfederek temel ritim bilgisi edinin.': 'Discover the sounds and notes of the instrument on the learning screen to build your basic rhythm knowledge.',
+            'Tuşlara dokunarak kendi melodinizi oluşturun, kaydedin ve ardından tekrar dinleyerek geliştirin.': 'Touch the keys to create your own melody, save it, and improve it by listening again.',
+            'Çal ve Kayıt Et': 'Play and Record',
+            'Hazır Şarkılarla Oynat': 'Play with Ready Songs',
+            'Önceden hazırlanmış melodilerle ilk denemelerden pratik çalışmalarınıza geçiş.': 'A transition from your first attempts to practical work with pre-made melodies.',
+            'Önceden hazırlanmış şarkıları açıp çalmaya başlayın; kendinizi bir sonraki seviyeye taşıyın.': 'Open and play pre-made songs and take yourself to the next level.',
+            '© 2026 Çevrimiçi Kodlama. Tüm hakları saklıdır.': '© 2026 Online Coding. All rights reserved.',
             'İlkokuldan liseye; blok kodlama, Python ve Yapay Zeka ile tanışın.': 'Discover block coding, Python, and Artificial Intelligence from primary school to secondary school.',
             'EĞİTİM PROGRAMLARIMIZ': 'OUR TRAINING PROGRAMMES',
             'Blok Kodlama': 'Block Coding',
@@ -196,7 +235,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         originalTextByNode.set(child, currentText);
                     }
 
-                    const translated = map[originalText] || originalText;
+                    const sourceText = originalText;
+                    const phrases = Object.entries(map).sort(function (a, b) {
+                        return b[0].length - a[0].length;
+                    });
+
+                    let translated = sourceText;
+                    phrases.forEach(function ([key, value]) {
+                        if (!key || !translated.includes(key)) {
+                            return;
+                        }
+                        translated = translated.replaceAll(key, value);
+                    });
+
                     if (translated !== child.textContent) {
                         child.textContent = translated;
                     }
