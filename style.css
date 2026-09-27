@@ -336,7 +336,7 @@ opacity: 1 !important;
     font-weight: 700;
     font-size: 1.1rem;
     color: var(--dark) !important; /* Siyah yerine senin koyu mavi tonun */
-    margin: 5px 14px;
+    margin: 0 18px;
     position: relative;
     transition: all 0.3s ease;
     padding: 8px 0 !important; /* Alt çizgi için mesafe */
